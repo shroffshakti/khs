@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Classes - Class V</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        
+        /* Timetable container */
+        .timetable-container { 
+            width: 100%; 
+            max-width: 900px; 
+            margin: auto; 
+            padding: 15px; 
+            border: 2px solid #ddd; 
+            border-radius: 5px; 
+            background: #f9f9f9; 
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Zoom details container */
+        .container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 15px; 
+            max-width: 900px; 
+            margin: 20px auto; 
+        }
+
+        .zoom-box { 
+            width: 45%; /* Two columns */
+            padding: 15px; 
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+            background: #f9f9f9; 
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table { width: 100%; text-align: center; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 10px; }
+        th { background: #f0f0f0; }
+        .break { color: red; font-weight: bold; }
+
+        button { 
+            padding: 5px 10px; 
+            cursor: pointer; 
+            background: #007bff; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+        }
+        button:hover { background: #0056b3; }
+        
+        @media (max-width: 600px) { 
+            .zoom-box { width: 100%; } /* Stacks on smaller screens */
+        }
+
+        /* Copied message styling */
+        #copied-message {
+            display: none;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: green;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Copied notification -->
+    <div id="copied-message">Copied!</div>
+
+    <!-- Timetable Box -->
+    <div class="timetable-container">
+        <h3>Class Timetable - Class V</h3>
+        <table>
+            <tr>
+                <th>Time (Morning)</th>
+                <th style="color:red;">Monday</th>
+                <th style="color:red;">Tuesday</th>
+                <th style="color:red;">Wednesday</th>
+                <th style="color:red;">Thursday</th>
+                <th style="color:red;">Friday</th>
+            </tr>
+            <tr><td>7:40 - 8:20</td><td>EVS</td><td>ENGLISH</td><td>MATHS</td><td>MARATHI</td><td>HINDI</td></tr>
+            <tr><td>8:20 - 9:00</td><td>MATHS</td><td>HINDI</td><td>ENGLISH</td><td>MATHS</td><td>MATHS</td></tr>
+            <tr><td>9:00 - 9:40</td><td>G/S</td><td>G/S</td><td>MARATHI</td><td>EVS</td><td>ENGLISH</td></tr>
+            <tr><td colspan="6" class="break">BREAK: 9:40 a.m. TO 10:00 a.m.</td></tr>
+            <tr><td>10:00 - 10:40</td><td>MARATHI</td><td>MARATHI</td><td>EVS</td><td>HINDI</td><td>EVS</td></tr>
+            <tr><td>10:40 - 11:20</td><td>ENGLISH</td><td>MATHS</td><td>G/S</td><td>ENGLISH</td><td>MATHS</td></tr>
+            <tr><td>11:20 - 12:00</td><td>HINDI</td><td>EVS</td><td>HINDI</td><td>EVS</td><td>MARATHI</td></tr>
+        </table>
+    </div>
+
+    <!-- Zoom Details Box -->
+    <div class="container">
+        <div class="zoom-box">
+            <h3>EVS</h3>
+            <p>Meeting ID: <span id="evs-id">75445606032</span> <button onclick="copyText('evs-id')">📋 Copy</button></p>
+            <p>Password: <span id="evs-pass">H4#g7%</span> <button onclick="copyText('evs-pass')">📋 Copy</button></p>
+        </div>
+
+        <div class="zoom-box">
+            <h3>Maths</h3>
+            <p>Meeting ID: <span id="maths-id">71552229823</span> <button onclick="copyText('maths-id')">📋 Copy</button></p>
+            <p>Password: <span id="maths-pass">EVSM579</span> <button onclick="copyText('maths-pass')">📋 Copy</button></p>
+        </div>
+
+        <div class="zoom-box">
+            <h3>German</h3>
+            <p>Meeting ID: <span id="german-id">99231379600</span> <button onclick="copyText('german-id')">📋 Copy</button></p>
+            <p>Password: <span id="german-pass">A&9g$6</span> <button onclick="copyText('german-pass')">📋 Copy</button></p>
+        </div>
+
+        <div class="zoom-box">
+            <h3>Sanskrit</h3>
+            <p>Meeting ID: <span id="sanskrit-id">81289265854</span> <button onclick="copyText('sanskrit-id')">📋 Copy</button></p>
+            <p>Password: <span id="sanskrit-pass">S2@w4$</span> <button onclick="copyText('sanskrit-pass')">📋 Copy</button></p>
+        </div>
+
+        <div class="zoom-box">
+            <h3>Marathi</h3>
+            <p>Meeting ID: <span id="marathi-id">84152410627</span> <button onclick="copyText('marathi-id')">📋 Copy</button></p>
+            <p>Password: <span id="marathi-pass">frpp9z</span> <button onclick="copyText('marathi-pass')">📋 Copy</button></p>
+        </div>
+
+        <div class="zoom-box">
+            <h3>English</h3>
+            <p>Meeting ID: <span id="english-id">76507510261</span> <button onclick="copyText('english-id')">📋 Copy</button></p>
+            <p>Password: <span id="english-pass">khsg</span> <button onclick="copyText('english-pass')">📋 Copy</button></p>
+        </div>
+
+        <div class="zoom-box">
+            <h3>Hindi</h3>
+            <p>Meeting ID: <span id="hindi-id">76672953690</span> <button onclick="copyText('hindi-id')">📋 Copy</button></p>
+            <p>Password: <span id="hindi-pass">Khshm</span> <button onclick="copyText('hindi-pass')">📋 Copy</button></p>
+        </div>
+    </div>
+
+    <script>
+        function copyText(elementId) {
+            let text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text);
+
+            // Show "Copied!" message at the top
+            let copiedMessage = document.getElementById("copied-message");
+            copiedMessage.style.display = "block";
+
+            // Hide it after 1.5 seconds
+            setTimeout(() => {
+                copiedMessage.style.display = "none";
+            }, 1500);
+        }
+    </script>
+
+</body>
+</html>
